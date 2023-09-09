@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+
+
 function SearchInput() {
   const [selectManufacture, setSelectManufacturer] = useState("");
   const [selectYear, setSelectYear] = useState("");
@@ -10,14 +12,14 @@ function SearchInput() {
   const handleManufacturerChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectManufacturer(e.target.value); // Update the selectedManufacturer state with the selected option
   };
-  console.log("manufacturer :", selectManufacture);
+  // console.log("manufacturer :", selectManufacture);
 
   // handle yares
   const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectYear(e.target.value); // Update the selectedYears state with the selected option
   };
 
-  console.log("years :", selectYear);
+  // console.log("years :", selectYear);
 
   return (
     <div className="mt-5">

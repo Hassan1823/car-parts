@@ -9,7 +9,7 @@ function CarsFilterOptions() {
   const handleGroupPartChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectGroupPart(e.target.value); // Update the selectedGroupParts state with the selected option
   };
-  console.log("Groups Parts :", selectGroupPart);
+  // console.log("Groups Parts :", selectGroupPart);
 
   return (
     <div className="mt-10 flex items-center justify-between">
