@@ -7,13 +7,13 @@ function SearchInput() {
   const [selectYear, setSelectYear] = useState("");
 
   // handle manufacturer
-  const handleManufacturerChange = (e) => {
+  const handleManufacturerChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectManufacturer(e.target.value); // Update the selectedManufacturer state with the selected option
   };
   console.log("manufacturer :", selectManufacture);
 
   // handle yares
-  const handleYearChange = (e) => {
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectYear(e.target.value); // Update the selectedYears state with the selected option
   };
 

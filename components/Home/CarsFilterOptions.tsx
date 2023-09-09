@@ -6,7 +6,7 @@ function CarsFilterOptions() {
   const [selectGroupPart, setSelectGroupPart] = useState("");
 
   // handle group parts
-  const handleGroupPartChange = (e) => {
+  const handleGroupPartChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectGroupPart(e.target.value); // Update the selectedGroupParts state with the selected option
   };
   console.log("Groups Parts :", selectGroupPart);
