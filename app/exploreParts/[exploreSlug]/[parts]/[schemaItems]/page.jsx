@@ -127,9 +127,9 @@ const Parts = () => {
   return (
     <>
       {/* main container */}
-      <div className="flex flex-col lg:px-32 md:px-14 px-4 my-8 text-center">
+      <div className="flex flex-col lg:px-32 md:px-14 px-4 text-center">
         {/* heading */}
-        <h1 className="lg:text-3xl text-xl font-semibold text-yellow-500 py-3">Choose schema</h1>
+        <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500 py-6">Choose schema</h1>
 
         {/* parts cards */}
 

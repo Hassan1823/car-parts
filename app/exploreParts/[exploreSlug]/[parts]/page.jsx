@@ -61,10 +61,11 @@ const Chassis = ({ params }) => {
   const restOfElements = root.slice(1);
   const subCategory = restOfElements.join(" ");
 
+  console.log("Main Category is : ", mainCategory);
   console.log("Sub Category is : ", subCategory);
-  console.log("Main Category is : ", subSubCateg);
+  console.log("Sub Sub Category is : ", subSubCateg);
 
-  console.table("data is :", params);
+  // console.table("data is :", params);
 
   return (
     <>

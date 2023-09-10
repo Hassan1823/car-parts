@@ -131,7 +131,6 @@ const ExploreSlug = ({ params }) => {
         break;
       // Add cases for other categories as needed
       default:
-        console.log("No tags Found or match");
         carTags = [];
     }
     const filteredArray = carTags
@@ -204,25 +203,25 @@ const ExploreSlug = ({ params }) => {
           </div>
 
           {/* chassis model */}
-          {/* <h1 className="lg:text-2xl text-lg font-light">
+          <h1 className="lg:text-2xl text-lg font-light">
             {`Choose chassis model by the car's market`}
-          </h1> */}
+          </h1>
 
-          {/* <div className="flex flex-col gap-4">
+           <div className="flex flex-col gap-4">
             {filteredCarTags.map((data, index) => {
               return (
-                <span key={index} className="text-lg">
+                <span key={index} className="text-lg text-yellow-500 hover:text-yellow-600">
                   {data[0]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-blue-600 my-2 lg:text-base text-xs">
+                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs ">
                     {data[0]?.items.map((items) => {
                       return (
                         <span
-                          onClick={() =>
-                            router.push(`${pathname}/${items.value}`)
-                          }
+                          // onClick={() =>
+                          //   router.push(`${pathname}/${items.value}`)
+                          // }
                           // href={`/toyota/Alphard/${data}`}
                           key={items.value}
-                          className=" hover:text-red-600 hover:cursor-pointer"
+                          className=" hover:text-yellow-600 hover:cursor-pointer "
                         >
                           {items.value}
                         </span>
@@ -230,16 +229,16 @@ const ExploreSlug = ({ params }) => {
                     })}
                   </div>
                   {data[1]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-blue-600 my-2 lg:text-base text-xs">
+                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
                     {data[1]?.items.map((items) => {
                       return (
                         <span
-                          onClick={() =>
-                            router.push(`${pathname}/${items.value}`)
-                          }
+                          // onClick={() =>
+                          //   router.push(`${pathname}/${items.value}`)
+                          // }
                           // href={`/toyota/Alphard/${data}`}
                           key={items.value}
-                          className=" hover:text-red-600 hover:cursor-pointer"
+                          className=" hover:text-yellow-600 hover:cursor-pointer"
                         >
                           {items.value}
                         </span>
@@ -247,16 +246,16 @@ const ExploreSlug = ({ params }) => {
                     })}
                   </div>
                   {data[2]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-blue-600 my-2 lg:text-base text-xs">
+                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
                     {data[2]?.items.map((items) => {
                       return (
                         <span
-                          onClick={() =>
-                            router.push(`${pathname}/${items.value}`)
-                          }
+                          // onClick={() =>
+                          //   router.push(`${pathname}/${items.value}`)
+                          // }
                           // href={`/toyota/Alphard/${data}`}
                           key={items.value}
-                          className=" hover:text-red-600 hover:cursor-pointer"
+                          className=" hover:text-yellow-600 hover:cursor-pointer"
                         >
                           {items.value}
                         </span>
@@ -264,15 +263,15 @@ const ExploreSlug = ({ params }) => {
                     })}
                   </div>
                   {data[3]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-blue-600 my-2 lg:text-base text-xs">
+                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
                     {data[3]?.items.map((items) => {
                       return (
                         <span
-                          onClick={() =>
-                            router.push(`${pathname}/${items.value}`)
-                          }
+                          // onClick={() =>
+                          //   router.push(`${pathname}/${items.value}`)
+                          // }
                           key={items.value}
-                          className=" hover:text-red-600 hover:cursor-pointer"
+                          className=" hover:text-yellow-600 hover:cursor-pointer"
                         >
                           {items.value}
                         </span>
@@ -280,15 +279,15 @@ const ExploreSlug = ({ params }) => {
                     })}
                   </div>
                   {data[4]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-blue-600 my-2 lg:text-base text-xs">
+                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
                     {data[4]?.items.map((items) => {
                       return (
                         <span
-                          onClick={() =>
-                            router.push(`${pathname}/${items.value}`)
-                          }
+                          // onClick={() =>
+                          //   router.push(`${pathname}/${items.value}`)
+                          // }
                           key={items.value}
-                          className=" hover:text-red-600 hover:cursor-pointer"
+                          className=" hover:text-yellow-600 hover:cursor-pointer"
                         >
                           {items.value}
                         </span>
@@ -300,7 +299,7 @@ const ExploreSlug = ({ params }) => {
             })}
 
            
-          </div> */}
+          </div> 
         </div>
       )}
     </>
