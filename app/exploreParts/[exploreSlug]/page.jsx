@@ -177,7 +177,7 @@ const ExploreSlug = ({ params }) => {
                     {imageLoading ? (
                       <div className="border-t-4 border-yellow-500 border-solid rounded-full animate-spin h-10 w-10"></div>
                     ) : (
-                      <Image
+                      <img
                         src={data.imageLink}
                         alt={data.Frames}
                         width={180}

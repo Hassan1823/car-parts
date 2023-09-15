@@ -101,7 +101,7 @@ const Parts = ({ params }) => {
                       href={`${pathname}/${data.Alt}`}
                       className="w-48 h-56 flex flex-col gap-2 hover:shadow-xl hover:border hover:duration-300 hover:scale-105 hover:border-opacity-10 rounded-md items-center  justify-around  text-yellow-500 p-1 hover:bg-slate-100 hover:bg-opacity-10"
                     >
-                      <Image
+                      <img
                         src={data.imageLink}
                         alt={data.Alt}
                         width={160}

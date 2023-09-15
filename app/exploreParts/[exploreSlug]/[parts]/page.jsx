@@ -145,7 +145,7 @@ const Chassis = ({ params }) => {
                   // href={`${pathname}/${data.generation}`}
                   className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] gap-2 text-[#A5A5A5] hover:cursor-not-allowed "
                 >
-                  <Image
+                  <img
                     src={data.ImageLink}
                     alt="cars"
                     width={180}
