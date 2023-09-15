@@ -103,7 +103,7 @@ const Parts = ({ params }) => {
                     >
                       <Image
                         src={data.imageLink}
-                        alt="parts"
+                        alt={data.Alt}
                         width={160}
                         height={100}
                         className="object-contain"

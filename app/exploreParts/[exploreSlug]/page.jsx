@@ -136,13 +136,13 @@ const ExploreSlug = ({ params }) => {
     const filteredArray = carTags
       .filter((data) => data.title === tagsCateg)
       .map((data) => data.markets);
-    console.log("Main Tagsssss are :", carTags);
+    // console.log("Main Tagsssss are :", carTags);
     return filteredArray;
   }, [mainCategory, tagsCateg]);
 
   useEffect(() => {
     filteredCarTags;
-    console.table("Tags are :", filteredCarTags);
+    // console.table("Tags are :", filteredCarTags);
   }, [filteredCarTags]);
 
   return (
