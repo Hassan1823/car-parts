@@ -24,7 +24,7 @@ router.push('/exploreParts')
         <button
           className="p-2 mt-5 bg-yellow-500 text-white
                 px-4 rounded-full 
-                hover:scale-105 transition-all"
+                hover:scale-105 transition-all my-8"
                 onClick={handleNavigae}
         >
           Explore Parts

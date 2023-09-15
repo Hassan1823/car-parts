@@ -12,12 +12,12 @@ function CarsFilterOptions() {
   // console.log("Groups Parts :", selectGroupPart);
 
   return (
-    <div className="mt-10 flex items-center justify-between">
+    <div className="mt-10 flex sm:flex-row flex-col items-center justify-between sm:text-start text-center">
       <div className="">
         <h2 className="text-[30px] font-bold text-yellow-500">Parts Catalog</h2>
         <h2 className="">Explore our cars parts you might likes</h2>
       </div>
-      <div className="flex gap-5">
+      <div className="flex gap-5 my-8 sm:my-0">
         <select className="select select-bordered w-full max-w-xs bg-yellow-500 px-2"
         value={selectGroupPart} // Set the selected value of the select element to the state variable
         onChange={handleGroupPartChange} // Handle the change event

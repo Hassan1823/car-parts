@@ -34,7 +34,7 @@ const ExploreSlug = ({ params }) => {
   const pathname = usePathname();
   const [loading, setLoading] = useState(true);
   const [imageLoading, setImageLoading] = useState(true);
-  
+
   const root = params.exploreSlug.split("%20");
   const mainCategory = root[0];
   const restOfElements = root.slice(1);
@@ -150,7 +150,7 @@ const ExploreSlug = ({ params }) => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <div className="w-full min-h-screen h-auto lg:px-32 px-8 flex flex-col justify-start gap-6 py-6">
+        <div className="w-full min-h-screen h-auto lg:px-32 md:px-12 px-6 flex flex-col justify-start gap-6 py-6">
           {/* heading */}
           <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500">
             {mainCategory} {subCategory}
@@ -165,7 +165,8 @@ const ExploreSlug = ({ params }) => {
             </h1>
           )}
           {/* card */}
-          <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center items-start gap-4">
+          {/* <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center items-start gap-4"> */}
+          <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4">
             {filteredCarArray.map((data, index) => {
               return (
                 <div key={index}>
@@ -180,9 +181,9 @@ const ExploreSlug = ({ params }) => {
                       <img
                         src={data.imageLink}
                         alt={data.Frames}
-                        width={180}
-                        height={48}
-                        className=" object-contain "
+                        width={150}
+                        height={100}
+                        className=" object-contain rounded-md"
                       />
                     )}
 
@@ -193,8 +194,10 @@ const ExploreSlug = ({ params }) => {
                       {data.Years}
                     </span>
                     {/* <span className="truncate">{data.Frames}</span> */}
-                    <span className="text-white hover:text-yellow-500 mx-auto text-center">{data.Frames}</span>
-                    <span className="text-white hover:text-yellow-500">{data.Generation}</span>
+                    {/* <span className="text-white hover:text-yellow-500 mx-auto text-center">{data.Frames}</span> */}
+                    <span className="text-white hover:text-yellow-500">
+                      {data.Generation}
+                    </span>
                   </div>
                   {/* )} */}
                 </div>
@@ -207,10 +210,13 @@ const ExploreSlug = ({ params }) => {
             {`Choose chassis model by the car's market`}
           </h1>
 
-           <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4">
             {filteredCarTags.map((data, index) => {
               return (
-                <span key={index} className="text-lg text-yellow-500 hover:text-yellow-600">
+                <span
+                  key={index}
+                  className="text-lg text-yellow-500 hover:text-yellow-600"
+                >
                   {data[0]?.market_title}
                   <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs ">
                     {data[0]?.items.map((items) => {
@@ -297,9 +303,7 @@ const ExploreSlug = ({ params }) => {
                 </span>
               );
             })}
-
-           
-          </div> 
+          </div>
         </div>
       )}
     </>

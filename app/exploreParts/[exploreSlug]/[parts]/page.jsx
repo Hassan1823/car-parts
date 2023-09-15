@@ -130,8 +130,13 @@ const Chassis = ({ params }) => {
 
       <div className="w-full min-h-screen h-auto lg:px-32 px-4 flex flex-col gap-8">
         <h1 className="lg:text-3xl text-lg text-yellow-500 font-semibold py-6">
-          {/* {mainCategory} {subCategory} , {subSubCateg} */}
-          {headTitle.BreadcrumbsH1}
+          {headTitle ? (
+            <>{headTitle?.BreadcrumbsH1}</>
+          ) : (
+            <>
+              No data found for {mainCategory} {subCategory} , {subSubCateg}
+            </>
+          )}
         </h1>
         {/* parts group */}
         <div className="w-full h-auto flex lg:justify-start justify-center flex-wrap gap-8">
@@ -155,7 +160,7 @@ const Chassis = ({ params }) => {
 
                   <span className="text-yellow-600">{data.Years}</span>
                   <span>{data.Family}</span>
-                  <span>{data.Frames}</span>
+                  {/* <span>{data.Frames}</span> */}
                   <span>{data.Generation}</span>
                 </div>
                 {/* parts grid group */}
@@ -169,11 +174,7 @@ const Chassis = ({ params }) => {
                       return (
                         <span
                           key={index}
-                          onClick={() =>
-                            router.push(
-                              `${pathname}/${href}`
-                            )
-                          }
+                          onClick={() => router.push(`${pathname}/${href}`)}
                           // href={`/toyota/Alphard/2%20generation/${item.desc}`}
                           className="hover:shadow-xl w-44 h-44 rounded-md text-yellow-500 hover:text-yellow-600 font-medium flex flex-col justify-start text-center items-center gap-2 hover:scale-105 hover:duration-300 hover:bg-slate-100 hover:bg-opacity-10"
                         >
@@ -211,6 +212,11 @@ const Chassis = ({ params }) => {
                   </div> */}
                 </div>
                 <div className="flex flex-col gap-8 pb-20">
+                  <h1 className="lg:text-lg text-sm font-medium text-yellow-500">
+                    Frames
+                  </h1>
+                  <p className="lg:text-sm text-xs leading-5">{data.Frames}</p>
+
                   <h1 className="lg:text-lg text-sm font-medium text-yellow-500">
                     {data.typesDiv}
                   </h1>

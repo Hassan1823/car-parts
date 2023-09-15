@@ -79,7 +79,7 @@ const Parts = ({ params }) => {
   return (
     <>
       {/* main container */}
-      <div className="flex flex-col lg:px-32 md:px-14 px-4 text-center">
+      <div className="flex flex-col lg:px-32 md:px-12 px-4 text-center justify-center">
         {/* heading */}
         <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500 py-6">
           Choose schema
@@ -87,12 +87,13 @@ const Parts = ({ params }) => {
 
         {/* parts cards */}
 
-        <div className="w-full h-auto flex flex-wrap items-center justify-center gap-8 my-6">
+        <div className="w-full h-auto flex items-center justify-center gap-2 my-6">
           {cardsData.map((items, index) => {
             return (
               <div
                 key={index}
-                className="w-full h-auto flex flex-wrap justify-center items-center"
+                // className="w-full h-auto flex flex-wrap justify-center items-center"
+                className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4"
               >
                 {items.cards?.map((data, index) => {
                   return (
@@ -106,7 +107,7 @@ const Parts = ({ params }) => {
                         alt={data.Alt}
                         width={160}
                         height={100}
-                        className="object-contain"
+                        className="object-contain rounded-md"
                       />
                       <span className="lg:text-sm text-xs">{data.Alt}</span>
                     </Link>
