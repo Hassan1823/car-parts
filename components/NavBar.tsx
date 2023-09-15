@@ -32,7 +32,7 @@ function NavBar() {
           Contact Us
         </h2>
       </div>
-      {/* <UserButton afterSignOutUrl="/" /> */}
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }

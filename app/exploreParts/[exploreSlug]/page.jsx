@@ -14,7 +14,7 @@ import {
   lexusCars,
   infinitiCars,
   hondaCars,
-} from "@/utils/cars";
+} from "@/public/utils/cars";
 
 import {
   hondaCarChassisTags,
@@ -26,7 +26,7 @@ import {
   subaruCarChassisTags,
   suzukiCarChassisTags,
   toyotaCarChassisTags,
-} from "@/utils/carChassisTags";
+} from "@/public/utils/carChassisTags";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
 const ExploreSlug = ({ params }) => {

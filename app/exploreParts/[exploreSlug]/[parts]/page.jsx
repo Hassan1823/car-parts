@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 // local imports
-import { hondaAllPartsData } from "@/utils/allPartsData";
+import { hondaAllPartsData } from "@/public/utils/allPartsData";
 
 // const cardData = [
 //   {

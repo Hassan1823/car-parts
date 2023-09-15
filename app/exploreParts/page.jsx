@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 // local importS
-import { categoriesData } from "@/utils/data";
+import { categoriesData } from "@/public/utils/data";
 
 const ExploreParts = () => {
   const [selectManufacture, setSelectManufacturer] = useState("Toyota");

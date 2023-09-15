@@ -5,10 +5,8 @@ import Link from "next/link";
 import React, { useMemo } from "react";
 import { usePathname } from "next/navigation";
 
-
-
 // local imports
-import { hondaAllPartsData } from "@/utils/allPartsData";
+import { hondaAllPartsData } from "@/public/utils/allPartsData";
 
 const Parts = ({ params }) => {
   const pathname = usePathname();
@@ -89,11 +87,13 @@ const Parts = ({ params }) => {
 
         {/* parts cards */}
 
-
         <div className="w-full h-auto flex flex-wrap items-center justify-center gap-8 my-6">
           {cardsData.map((items, index) => {
             return (
-              <div key={index} className="w-full h-auto flex flex-wrap justify-center items-center">
+              <div
+                key={index}
+                className="w-full h-auto flex flex-wrap justify-center items-center"
+              >
                 {items.cards?.map((data, index) => {
                   return (
                     <Link
