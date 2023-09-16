@@ -84,7 +84,7 @@ const Parts = ({ params }) => {
         <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500 py-6">
           Choose schema for
         </h1>
-        <h1 className="text-2xl font-semibold text-yellow-500">
+        <h1 className="lg:text-2xl md:text-xl text-lg font-semibold text-yellow-500">
           {paramsPath && paramsPath}
         </h1>
 

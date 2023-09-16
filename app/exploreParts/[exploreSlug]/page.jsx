@@ -27,7 +27,7 @@ import {
   suzukiCarChassisTags,
   toyotaCarChassisTags,
 } from "@/public/utils/carChassisTags";
-import LoadingSpinner from "@/components/LoadingSpinner";
+// import LoadingSpinner from "@/components/LoadingSpinner";
 
 const ExploreSlug = ({ params }) => {
   const router = useRouter();
@@ -147,169 +147,169 @@ const ExploreSlug = ({ params }) => {
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <LoadingSpinner />
-      ) : (
-        <div className="w-full min-h-screen h-auto lg:px-32 md:px-12 px-6 flex flex-col justify-start gap-6 py-6">
-          {/* heading */}
-          <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500">
-            {mainCategory} {subCategory}
+      ) : ( */}
+      <div className="w-full min-h-screen h-auto lg:px-32 md:px-12 px-6 flex flex-col justify-start gap-6 py-6">
+        {/* heading */}
+        <h1 className="lg:text-4xl text-2xl font-semibold text-yellow-500">
+          {mainCategory} {subCategory}
+        </h1>
+        {filteredCarArray.length === 0 ? (
+          <h1 className="lg:text-2xl text-lg font-light text-gray-500">
+            {"No Data Found"}
           </h1>
-          {filteredCarArray.length === 0 ? (
-            <h1 className="lg:text-2xl text-lg font-light text-gray-500">
-              {"No Data Found"}
-            </h1>
-          ) : (
-            <h1 className="lg:text-2xl text-lg font-light ">
-              {"Choose generation by production years:"}
-            </h1>
-          )}
-          {/* card */}
-          {/* <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center items-start gap-4"> */}
-          <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4 md:gap-6 lg:gap-10">
-            {filteredCarArray.map((data, index) => {
-              return (
-                <div key={index}>
-                  {/* {data.parentTitle === categ && ( */}
-                  <div
-                    onClick={() => router.push(`${pathname}/${data.Family}`)}
-                    className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
-                  >
-                    {imageLoading ? (
-                      <div className="border-t-4 border-yellow-500 border-solid rounded-full animate-spin h-10 w-10"></div>
-                    ) : (
-                      <img
-                        src={data.imageLink}
-                        alt={data.Frames}
-                        // width={150}
-                        height={100}
-                        className=" object-contain rounded-md my-4 lg:w-56 md:w-44 w-36 border" 
-                      />
-                    )}
-
-                    <span className="text-yellow-500 hover:text-white">
-                      {data.Family}
-                    </span>
-                    <span className="text-white hover:text-yellow-500">
-                      {data.Years}
-                    </span>
-                    {/* <span className="truncate">{data.Frames}</span> */}
-                    {/* <span className="text-white hover:text-yellow-500 mx-auto text-center">{data.Frames}</span> */}
-                    <span className="text-white hover:text-yellow-500">
-                      {data.Generation}
-                    </span>
-                  </div>
-                  {/* )} */}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* chassis model */}
-          {filteredCarTags.length !== 0 && (
-            <>
-              <h1 className="lg:text-2xl text-lg font-light">
-                {`Choose chassis model by the car's market`}
-              </h1>
-            </>
-          )}
-
-          <div className="flex flex-col gap-4">
-            {filteredCarTags.map((data, index) => {
-              return (
-                <span
-                  key={index}
-                  className="text-lg text-yellow-500 hover:text-yellow-600"
+        ) : (
+          <h1 className="lg:text-2xl text-lg font-light ">
+            {"Choose generation by production years:"}
+          </h1>
+        )}
+        {/* card */}
+        {/* <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center items-start gap-4"> */}
+        <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4 md:gap-6 lg:gap-10">
+          {filteredCarArray.map((data, index) => {
+            return (
+              <div key={index}>
+                {/* {data.parentTitle === categ && ( */}
+                <div
+                  onClick={() => router.push(`${pathname}/${data.Family}`)}
+                  className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
                 >
-                  {data[0]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs ">
-                    {data[0]?.items.map((items) => {
-                      return (
-                        <span
-                          // onClick={() =>
-                          //   router.push(`${pathname}/${items.value}`)
-                          // }
-                          // href={`/toyota/Alphard/${data}`}
-                          key={items.value}
-                          className=" hover:text-yellow-600 hover:cursor-pointer "
-                        >
-                          {items.value}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  {data[1]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
-                    {data[1]?.items.map((items) => {
-                      return (
-                        <span
-                          // onClick={() =>
-                          //   router.push(`${pathname}/${items.value}`)
-                          // }
-                          // href={`/toyota/Alphard/${data}`}
-                          key={items.value}
-                          className=" hover:text-yellow-600 hover:cursor-pointer"
-                        >
-                          {items.value}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  {data[2]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
-                    {data[2]?.items.map((items) => {
-                      return (
-                        <span
-                          // onClick={() =>
-                          //   router.push(`${pathname}/${items.value}`)
-                          // }
-                          // href={`/toyota/Alphard/${data}`}
-                          key={items.value}
-                          className=" hover:text-yellow-600 hover:cursor-pointer"
-                        >
-                          {items.value}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  {data[3]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
-                    {data[3]?.items.map((items) => {
-                      return (
-                        <span
-                          // onClick={() =>
-                          //   router.push(`${pathname}/${items.value}`)
-                          // }
-                          key={items.value}
-                          className=" hover:text-yellow-600 hover:cursor-pointer"
-                        >
-                          {items.value}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  {data[4]?.market_title}
-                  <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
-                    {data[4]?.items.map((items) => {
-                      return (
-                        <span
-                          // onClick={() =>
-                          //   router.push(`${pathname}/${items.value}`)
-                          // }
-                          key={items.value}
-                          className=" hover:text-yellow-600 hover:cursor-pointer"
-                        >
-                          {items.value}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </span>
-              );
-            })}
-          </div>
+                  {/* {imageLoading ? (
+                      <span className="loading loading-infinity loading-md"></span>
+                    ) : ( */}
+                  <img
+                    src={data.imageLink}
+                    alt={data.Frames}
+                    // width={150}
+                    height={100}
+                    className=" object-contain rounded-md my-4 lg:w-56 md:w-44 w-36 border"
+                  />
+                  {/* // )} */}
+
+                  <span className="text-yellow-500 hover:text-white">
+                    {data.Family}
+                  </span>
+                  <span className="text-white hover:text-yellow-500">
+                    {data.Years}
+                  </span>
+                  {/* <span className="truncate">{data.Frames}</span> */}
+                  {/* <span className="text-white hover:text-yellow-500 mx-auto text-center">{data.Frames}</span> */}
+                  <span className="text-white hover:text-yellow-500">
+                    {data.Generation}
+                  </span>
+                </div>
+                {/* )} */}
+              </div>
+            );
+          })}
         </div>
-      )}
+
+        {/* chassis model */}
+        {filteredCarTags.length !== 0 && (
+          <>
+            <h1 className="lg:text-2xl text-lg font-light">
+              {`Choose chassis model by the car's market`}
+            </h1>
+          </>
+        )}
+
+        <div className="flex flex-col gap-4">
+          {filteredCarTags.map((data, index) => {
+            return (
+              <span
+                key={index}
+                className="text-lg text-yellow-500 hover:text-yellow-600"
+              >
+                {data[0]?.market_title}
+                <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs ">
+                  {data[0]?.items.map((items) => {
+                    return (
+                      <span
+                        // onClick={() =>
+                        //   router.push(`${pathname}/${items.value}`)
+                        // }
+                        // href={`/toyota/Alphard/${data}`}
+                        key={items.value}
+                        className=" hover:text-yellow-600 hover:cursor-pointer "
+                      >
+                        {items.value}
+                      </span>
+                    );
+                  })}
+                </div>
+                {data[1]?.market_title}
+                <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
+                  {data[1]?.items.map((items) => {
+                    return (
+                      <span
+                        // onClick={() =>
+                        //   router.push(`${pathname}/${items.value}`)
+                        // }
+                        // href={`/toyota/Alphard/${data}`}
+                        key={items.value}
+                        className=" hover:text-yellow-600 hover:cursor-pointer"
+                      >
+                        {items.value}
+                      </span>
+                    );
+                  })}
+                </div>
+                {data[2]?.market_title}
+                <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
+                  {data[2]?.items.map((items) => {
+                    return (
+                      <span
+                        // onClick={() =>
+                        //   router.push(`${pathname}/${items.value}`)
+                        // }
+                        // href={`/toyota/Alphard/${data}`}
+                        key={items.value}
+                        className=" hover:text-yellow-600 hover:cursor-pointer"
+                      >
+                        {items.value}
+                      </span>
+                    );
+                  })}
+                </div>
+                {data[3]?.market_title}
+                <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
+                  {data[3]?.items.map((items) => {
+                    return (
+                      <span
+                        // onClick={() =>
+                        //   router.push(`${pathname}/${items.value}`)
+                        // }
+                        key={items.value}
+                        className=" hover:text-yellow-600 hover:cursor-pointer"
+                      >
+                        {items.value}
+                      </span>
+                    );
+                  })}
+                </div>
+                {data[4]?.market_title}
+                <div className="w-full h-auto flex flex-wrap gap-4 text-white my-2 lg:text-base text-xs">
+                  {data[4]?.items.map((items) => {
+                    return (
+                      <span
+                        // onClick={() =>
+                        //   router.push(`${pathname}/${items.value}`)
+                        // }
+                        key={items.value}
+                        className=" hover:text-yellow-600 hover:cursor-pointer"
+                      >
+                        {items.value}
+                      </span>
+                    );
+                  })}
+                </div>
+              </span>
+            );
+          })}
+        </div>
+      </div>
+      {/* // )} */}
     </>
   );
 };

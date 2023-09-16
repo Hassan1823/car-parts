@@ -5,6 +5,7 @@ import { Outfit } from "next/font/google";
 // other imports
 // import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -20,18 +21,19 @@ export default function RootLayout({
 }) {
   return (
     // <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          {/* <SignedIn> */}
-            <NavBar />
+    <html lang="en">
+      <body className={inter.className}>
+        {/* <SignedIn> */}
+        <NavBar />
 
-            {children}
-          {/* </SignedIn> */}
-          {/* <SignedOut> */}
-            {/* <SignIn /> */}
-          {/* </SignedOut> */}
-        </body>
-      </html>
+        {children}
+        <Footer />
+        {/* </SignedIn> */}
+        {/* <SignedOut> */}
+        {/* <SignIn /> */}
+        {/* </SignedOut> */}
+      </body>
+    </html>
     // </ClerkProvider>
   );
 }
