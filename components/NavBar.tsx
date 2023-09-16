@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // other imports
-// import { UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
 function NavBar() {
   const router = useRouter();
@@ -36,7 +36,7 @@ function NavBar() {
           Contact Us
         </h2>
       </div>
-      {/* <UserButton afterSignOutUrl="/" /> */}
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }

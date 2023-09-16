@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 
 // other imports
-// import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
@@ -20,20 +20,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <ClerkProvider>
+    <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
-        {/* <SignedIn> */}
+        <SignedIn>
         <NavBar />
 
         {children}
         <Footer />
-        {/* </SignedIn> */}
-        {/* <SignedOut> */}
-        {/* <SignIn /> */}
-        {/* </SignedOut> */}
+        </SignedIn>
+        <SignedOut>
+        <SignIn />
+        </SignedOut>
       </body>
     </html>
-    // </ClerkProvider>
+    </ClerkProvider>
   );
 }
