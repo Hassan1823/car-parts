@@ -166,14 +166,14 @@ const ExploreSlug = ({ params }) => {
           )}
           {/* card */}
           {/* <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center items-start gap-4"> */}
-          <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4">
+          <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4 md:gap-6 lg:gap-10">
             {filteredCarArray.map((data, index) => {
               return (
                 <div key={index}>
                   {/* {data.parentTitle === categ && ( */}
                   <div
                     onClick={() => router.push(`${pathname}/${data.Family}`)}
-                    className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] gap-1 text-[#A5A5A5] hover:cursor-pointer"
+                    className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
                   >
                     {imageLoading ? (
                       <div className="border-t-4 border-yellow-500 border-solid rounded-full animate-spin h-10 w-10"></div>
@@ -181,16 +181,16 @@ const ExploreSlug = ({ params }) => {
                       <img
                         src={data.imageLink}
                         alt={data.Frames}
-                        width={150}
+                        // width={150}
                         height={100}
-                        className=" object-contain rounded-md"
+                        className=" object-contain rounded-md my-4 lg:w-56 md:w-44 w-36 border" 
                       />
                     )}
 
-                    <span className="text-yellow-500 hover:text-white mt-2">
+                    <span className="text-yellow-500 hover:text-white">
                       {data.Family}
                     </span>
-                    <span className="text-yellow-500 hover:text-white">
+                    <span className="text-white hover:text-yellow-500">
                       {data.Years}
                     </span>
                     {/* <span className="truncate">{data.Frames}</span> */}
@@ -206,9 +206,13 @@ const ExploreSlug = ({ params }) => {
           </div>
 
           {/* chassis model */}
-          <h1 className="lg:text-2xl text-lg font-light">
-            {`Choose chassis model by the car's market`}
-          </h1>
+          {filteredCarTags.length !== 0 && (
+            <>
+              <h1 className="lg:text-2xl text-lg font-light">
+                {`Choose chassis model by the car's market`}
+              </h1>
+            </>
+          )}
 
           <div className="flex flex-col gap-4">
             {filteredCarTags.map((data, index) => {

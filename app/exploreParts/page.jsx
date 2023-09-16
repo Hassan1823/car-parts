@@ -1,10 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 // local importS
 import { categoriesData } from "@/public/utils/data";
+import {
+  toyotaCars,
+  suzukiCars,
+  subaruCars,
+  nissanCars,
+  mitsubishiCars,
+  mazdaCars,
+  lexusCars,
+  infinitiCars,
+  hondaCars,
+} from "@/public/utils/cars";
 
 const ExploreParts = () => {
   const [selectManufacture, setSelectManufacturer] = useState("Toyota");
@@ -42,8 +53,90 @@ const ExploreParts = () => {
   }
   // console.log("tags are : ", tagsArray);
 
+  // finding tags by years
+  const filteringArrayFunction = useMemo(() => {
+    let arrayData;
+    switch (selectManufacture) {
+      case "Toyota":
+        arrayData = toyotaCars;
+        break;
+      case "Suzuki":
+        arrayData = suzukiCars;
+        break;
+      case "Lexus":
+        arrayData = lexusCars;
+        break;
+      case "Mitsubishi":
+        arrayData = mitsubishiCars;
+        break;
+      case "Honda":
+        arrayData = hondaCars;
+        break;
+      case "Mazda":
+        arrayData = mazdaCars;
+        break;
+      case "Nissan":
+        arrayData = nissanCars;
+        break;
+      case "Subaru":
+        arrayData = subaruCars;
+        break;
+      case "Infiniti":
+        arrayData = infinitiCars;
+        break;
+      // Add cases for other categories as needed
+      default:
+        arrayData = [];
+    }
+
+    const titlesArray = arrayData
+      .filter((item) => {
+        const yearRange = item.Years.split("-");
+        const [startYearStr, endYearStr] = yearRange.map((item) => item.trim());
+
+        // Convert the startYear and endYear to numbers
+        const startYear = parseInt(startYearStr.split(".")[1], 10);
+        const endYear = parseInt(endYearStr.split(".")[1], 10);
+
+        // Convert the selectedYear to a number
+        const year = parseInt(selectYear, 10);
+        const yearY = selectYear.split("-");
+        const [selectedStartYear, selectedEndYear] = yearY.map((item) =>
+          item.trim()
+        );
+        const sSYear = parseInt(selectedStartYear, 10);
+        const sEYear = parseInt(selectedEndYear, 10);
+        // console.log(
+        //   "selected Start years is : ",
+        //   sSYear ? sSYear : "No Start Year"
+        // );
+        // console.log(
+        //   "selected End years is : ",
+        //   sEYear ? sEYear : "No End Year"
+        // );
+
+        if (
+          (sSYear >= startYear && sSYear <= endYear) ||
+          (sEYear >= startYear && sEYear <= endYear)
+        ) {
+          return true; // Include this car in the filtered results
+        } else {
+          return false; // Exclude this car from the filtered results
+        }
+      })
+      .map((item) => {
+        const parentTitleParts = item.parentTitle.split(" ");
+        parentTitleParts.splice(0, 2); // Remove the first two words
+        return parentTitleParts.join(" ");
+      });
+
+    return titlesArray;
+  }, [selectManufacture, selectYear]);
+
+  const sourceArray = selectYear ? filteringArrayFunction : tagsArray;
+
   // reduce to letter
-  const categoriesByLetter = tagsArray.reduce((acc, category) => {
+  const categoriesByLetter = sourceArray.reduce((acc, category) => {
     const firstLetter = category[0].toUpperCase();
     if (!acc[firstLetter]) {
       acc[firstLetter] = [];
@@ -59,13 +152,14 @@ const ExploreParts = () => {
         className="w-full h-auto flex flex-wrap justify-start items-center text-white"
       >
         <h2 className="font-bold mr-4 text-yellow-500">{letter}</h2>
-        {}
         {categories.map((category) => (
           <span
             // href={`${pathname}/${category}`}
             key={category}
             className="mr-4 my-2 hover:cursor-pointer hover:text-yellow-600"
-            onClick={() => router.push(`${pathname}/${selectManufacture+' '+category}`)}
+            onClick={() =>
+              router.push(`${pathname}/${selectManufacture + " " + category}`)
+            }
           >
             {category}
           </span>
@@ -73,6 +167,13 @@ const ExploreParts = () => {
       </div>
     )
   );
+
+  // console.log("Manufacturers are :", selectManufacture);
+
+  // useEffect(() => {
+  //   filteringArrayFunction;
+  //   console.table("Tags are :", filteringArrayFunction);
+  // }, [filteringArrayFunction]);
 
   return (
     <div className="w-full min-h-screen h-auto">
@@ -179,7 +280,17 @@ const ExploreParts = () => {
       </div>
 
       {/* remaining data*/}
-      <div className="p-4 px-8">{categoriesList}</div>
+      <div className="p-4 px-8">
+        {categoriesList.length !== 0 ? (
+          categoriesList
+        ) : (
+          <>
+            <h1 className="text-slate-400 text-2xl" s>
+              No tags Found
+            </h1>
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 // other imports
-import { UserButton } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
 
 function NavBar() {
   const router = useRouter();
@@ -32,7 +32,7 @@ function NavBar() {
           Contact Us
         </h2>
       </div>
-      <UserButton afterSignOutUrl="/" />
+      {/* <UserButton afterSignOutUrl="/" /> */}
     </div>
   );
 }
