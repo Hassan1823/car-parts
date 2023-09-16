@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 // local import
@@ -15,13 +15,17 @@ import {
   infinitiCars,
   hondaCars,
 } from "@/public/utils/cars";
+import LoadingSpinner from "../LoadingSpinner";
 
 const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
   const [getInputSearch, setGetInputSearch] = useState("");
+  // const [loading, setLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
+
   // console.log("INput seacrh value is :", getInputSearch);
 
   const router = useRouter();
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   const defaultArray = useMemo(() => {
     let arrayData;
@@ -169,6 +173,10 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
     }
   };
 
+  const handleNavigae = () => {
+    router.push("/exploreParts");
+  };
+
   const finalArray =
     !getInputSearch && !selectYear
       ? defaultArray
@@ -177,6 +185,12 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
       : !getInputSearch && selectYear
       ? mainArrayFunction
       : result;
+
+  useEffect(() => {
+    setTimeout(() => {
+      setImageLoading(false);
+    }, 2000);
+  }, [selectManufacture]);
   return (
     <div className="w-full min-h-screen h-auto">
       <div className="mt-10 flex sm:flex-row flex-col items-center justify-between sm:text-start text-center">
@@ -217,45 +231,59 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
       </div>
 
       {/* seacrh by chassis  */}
-      <div className="w-full h-auto flex flex-wrap justify-center items-center gap-4 py-16">
-        {finalArray.length !== 0 ? (
-          <>
-            {finalArray?.map((data, index) => {
-              const href = data.parentTitle.trim();
-              return (
-                <div key={index}>
-                  <div
-                    onClick={() =>
-                      router.push(`/${`exploreParts`}/${href}/${data.Family}`)
-                    }
-                    className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
-                  >
-                    <img
-                      src={data.imageLink}
-                      alt={data.Frames}
-                      height={100}
-                      className=" object-contain rounded-md my-4 lg:w-56 md:w-44 w-36 border"
-                    />
+      {imageLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <div className="w-full h-auto flex flex-wrap justify-center items-center gap-4 py-16">
+          {finalArray.length !== 0 ? (
+            <>
+              {finalArray?.slice(0, 15).map((data, index) => {
+                const href = data.parentTitle.trim();
+                return (
+                  <div key={index}>
+                    <div
+                      onClick={() =>
+                        router.push(`/${`exploreParts`}/${href}/${data.Family}`)
+                      }
+                      className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
+                    >
+                      <img
+                        src={data.imageLink}
+                        alt={data.Frames}
+                        height={100}
+                        className=" object-contain rounded-md my-4 lg:w-56 md:w-44 w-36 border"
+                      />
 
-                    <span className="text-white hover:text-yellow-500">
-                      {data.Family}
-                    </span>
-                    <span className="text-yellow-500 hover:text-white">
-                      {data.parentTitle}
-                    </span>
-                    <span className="text-white hover:text-yellow-500">
-                      {data.Years}
-                    </span>
+                      <span className="text-white hover:text-yellow-500">
+                        {data.Family}
+                      </span>
+                      <span className="text-yellow-500 hover:text-white">
+                        {data.parentTitle}
+                      </span>
+                      <span className="text-white hover:text-yellow-500">
+                        {data.Years}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </>
-        ) : (
-          <>
-            <h1 className="">No Related Data Found</h1>
-          </>
-        )}
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <h1 className="">No Related Data Found</h1>
+            </>
+          )}
+        </div>
+      )}
+      <div className="w-full h-auto flex justify-center">
+        <button
+          className="p-2 mt-5 bg-yellow-500 text-white
+        px-4 rounded-full 
+        hover:scale-105 transition-all my-8"
+          onClick={handleNavigae}
+        >
+          Explore More
+        </button>
       </div>
     </div>
   );
