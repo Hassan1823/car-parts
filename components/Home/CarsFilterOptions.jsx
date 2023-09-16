@@ -234,7 +234,7 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
       {imageLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className="w-full h-auto flex flex-wrap justify-center items-center gap-4 py-16">
+        <div className="w-full h-auto grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-2 place-items-center gap-4 md:gap-6 lg:gap-10 py-10">
           {finalArray.length !== 0 ? (
             <>
               {finalArray?.slice(0, 15).map((data, index) => {
