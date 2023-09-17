@@ -59,15 +59,14 @@ const HeadBar = () => {
           </div>
         </div>
         <div className="navbar-center">
-          {/* <a className="btn btn-ghost normal-case lg:text-3xl md:text-2xl text-xl">Amayama</a> */}
           <Link href="/" className="cursor-pointer">
-            <img
-              src="/Amayama-logo.png"
-              alt="logo"
-              height={100}
-            //   width={100}
-              className="object-contain md:w-24 2xl:w-32 w-20"
-            />
+            <a className="btn btn-ghost normal-case lg:text-3xl md:text-2xl text-xl">
+              Amayama
+            </a>
+            {/* <img 
+            src="/Amayama-logo.png" alt="logo" height={100}
+            // width={100}
+            className="object-contain md:w-24 2xl:w-32 w-20" />*/}
           </Link>
         </div>
         <div className="navbar-end mr-4 flex justify-end items-center md:gap-8 gap-2">
