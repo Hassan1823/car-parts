@@ -98,7 +98,7 @@ const ExploreParts = () => {
         const startYear = parseInt(startYearStr.split(".")[1], 10);
         const endYear = parseInt(endYearStr.split(".")[1], 10);
 
-        // Convert the selectedYear to a number
+        // Convert the Year to a number
         // const year = parseInt(selectYear, 10);
         const yearY = selectYear.split("-");
         const [selectedStartYear, selectedEndYear] = yearY.map((item) =>
@@ -203,7 +203,7 @@ const ExploreParts = () => {
                 value={selectManufacture} // Set the selected value of the select element to the state variable
                 onChange={handleManufacturerChange} // Handle the change event
               >
-                <option disabled selected>
+                <option disabled>
                   Manufacturer
                 </option>
                 <option>Toyota</option>
@@ -238,7 +238,7 @@ const ExploreParts = () => {
                 value={selectYear} // Set the selected value of the select element to the state variable
                 onChange={handleYearChange} // Handle the change event
               >
-                <option disabled selected>
+                <option disabled>
                   Years
                 </option>
                 <option>2023</option>

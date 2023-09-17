@@ -145,9 +145,10 @@ const Chassis = ({ params }) => {
           {/* card */}
           {arrayData?.map((data, index) => {
             return (
-              <div className="h-auto w-full flex flex-wrap justify-evenly gap-8 items-center">
+              <div className="h-auto w-full flex flex-wrap justify-evenly gap-8 items-center"
+              key={index}
+              >
                 <div
-                  key={index}
                   // onClick={() => router.push(`${pathname}/${data.name}`)}
                   // href={`${pathname}/${data.generation}`}
                   className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-not-allowed "
@@ -171,7 +172,7 @@ const Chassis = ({ params }) => {
                   {/* parts */}
                   <div className="w-full h-auto flex flex-wrap lg:justify-start justify-center gap-4 hover:cursor-pointer my-4">
                     {partsGroup?.map((item, index) => {
-                      const href = decodeURIComponent(srcArray[index].h1Tag);
+                      // const href = decodeURIComponent(srcArray[index].h1Tag);
                       // const hrefData = decodeURIComponent(hrefFunction(srcArray, item.desc));
                       const hrefData = hrefFunction(srcArray, item.desc);
 

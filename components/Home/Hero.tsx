@@ -36,6 +36,7 @@ router.push('/exploreParts')
           alt="hero"
           width={400}
           height={500}
+          priority
           className="w-full object-cover align-middle"
         />
       </div>

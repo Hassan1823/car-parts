@@ -31,38 +31,28 @@ const HeadBar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow gap-4 bg-black border rounded-box w-52 text-yellow-500"
             >
               <Link href="/">
-                <li>
-                  <a>Home</a>
-                </li>
+                <li>Home</li>
               </Link>
               <Link href="/exploreParts">
-                <li>
-                  <a>Explore</a>
-                </li>
+                <li>Explore</li>
               </Link>
               <Link href="/">
-                <li>
-                  <a>Contact US</a>
-                </li>
+                <li>Contact US</li>
               </Link>
               <Link href="/">
-                <li>
-                  <a>Calculator</a>
-                </li>
+                <li>Calculator</li>
               </Link>
               <Link href="/">
-                <li>
-                  <a>Search By Chassis</a>
-                </li>
+                <li>Search By Chassis</li>
               </Link>
             </ul>
           </div>
         </div>
         <div className="navbar-center">
           <Link href="/" className="cursor-pointer">
-            <a className="btn btn-ghost normal-case lg:text-3xl md:text-2xl text-xl">
+            <span className="btn btn-ghost normal-case lg:text-3xl md:text-2xl text-xl">
               Amayama
-            </a>
+            </span>
             {/* <img 
             src="/Amayama-logo.png" alt="logo" height={100}
             // width={100}

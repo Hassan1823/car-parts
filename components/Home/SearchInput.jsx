@@ -55,7 +55,7 @@ function SearchInput() {
                 value={selectManufacture} // Set the selected value of the select element to the state variable
                 onChange={handleManufacturerChange} // Handle the change event
               >
-                <option disabled selected>
+                <option disabled>
                   Manufacturer
                 </option>
                 <option>Toyota</option>
@@ -90,7 +90,7 @@ function SearchInput() {
                 value={selectYear} // Set the selected value of the select element to the state variable
                 onChange={handleYearChange} // Handle the change event
               >
-                <option disabled selected>
+                <option disabled>
                   Years
                 </option>
                 <option>2023</option>
