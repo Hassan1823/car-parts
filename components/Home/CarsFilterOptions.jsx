@@ -161,9 +161,9 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
     return matchingObjects;
   }
 
-  // const inputSearch = "GRN210";
-  const result = searchFrames(getInputSearch);
-  // console.log("Search By Chassis :", result);
+  const inputSearch = getInputSearch.toUpperCase();
+  // console.log("Search :", inputSearch);
+  const result = searchFrames(inputSearch);
 
   const searchFunction = () => {
     if (getInputSearch.length !== 0) {
