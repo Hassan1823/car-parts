@@ -64,7 +64,7 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
     return arrayData;
   }, [selectManufacture]);
 
-  console.table("Default data is :", defaultArray);
+  // console.table("Default data is :", defaultArray);
 
   const mainArrayFunction = useMemo(() => {
     let arrayData;

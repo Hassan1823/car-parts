@@ -28,7 +28,6 @@ export default function RootLayout({ children }) {
           </SignedOut>
         </body>
       </html>
-      //{" "}
     </ClerkProvider>
   );
 }
