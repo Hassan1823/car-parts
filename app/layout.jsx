@@ -1,10 +1,7 @@
 import "./globals.css";
-// import { Metadata } from "next";
 import { Outfit } from "next/font/google";
-// import { GlobalProvider } from "@/app/GlobalProvider";
 // other imports
 import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import HeadBar from "@/components/HeadBar";
 
@@ -21,19 +18,17 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
           <SignedIn>
-            {/* <NavBar /> */}
-            {/* <GlobalProvider> */}
-              <HeadBar />
+            <HeadBar />
 
-              {children}
-              <Footer />
-            {/* </GlobalProvider> */}
+            {children}
+            <Footer />
           </SignedIn>
           <SignedOut>
             <SignIn />
           </SignedOut>
         </body>
       </html>
+      //{" "}
     </ClerkProvider>
   );
 }

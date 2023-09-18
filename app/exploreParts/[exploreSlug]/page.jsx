@@ -99,6 +99,8 @@ const ExploreSlug = ({ params }) => {
     return carArray.filter((data) => data.parentTitle === categ);
   }, [mainCategory, categ]);
 
+  // console.log("Main array data is : ", filteredCarArray);
+
   const filteredCarTags = useMemo(() => {
     let carTags;
     switch (mainCategory) {
@@ -172,7 +174,7 @@ const ExploreSlug = ({ params }) => {
               <div key={index}>
                 {/* {data.parentTitle === categ && ( */}
                 <div
-                  onClick={() => router.push(`${pathname}/${data.Family}`)}
+                  onClick={() => router.push(`${pathname}/${data.Frames}`)}
                   className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
                 >
                   {/* {imageLoading ? (

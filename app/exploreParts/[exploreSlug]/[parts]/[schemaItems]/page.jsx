@@ -1,12 +1,13 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo } from "react";
 import { usePathname } from "next/navigation";
 
 // local imports
-import { hondaAllPartsData } from "@/public/utils/allPartsData";
+import { hondaAllPartsData, allHondaDataArray } from "@/public/utils/allPartsData";
+import { allDataForInfiniti } from "@/public/utils/allInfinitiData";
 
 const Parts = ({ params }) => {
   const pathname = usePathname();
@@ -26,35 +27,39 @@ const Parts = ({ params }) => {
   // console.log("Sub Sub Category is : ", subSubCateg);
   // console.log("last Params are :", paramsPath);
 
+  const lastCat = subSubCateg;
+
+
+
   const filterAllPartsData = useMemo(() => {
     let allPartsArray;
     switch (mainCategory) {
       case "Toyota":
-        allPartsArray = toyotaCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Suzuki":
-        allPartsArray = suzukiCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Lexus":
-        allPartsArray = lexusCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Mitsubishi":
-        allPartsArray = mitsubishiCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Honda":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allHondaDataArray;
         break;
       case "Mazda":
-        allPartsArray = mazdaCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Nissan":
-        allPartsArray = nissanCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Subaru":
-        allPartsArray = subaruCars;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Infiniti":
-        allPartsArray = infinitiCars;
+        allPartsArray = allDataForInfiniti;
         break;
       // Add cases for other categories as needed
       default:
@@ -64,15 +69,15 @@ const Parts = ({ params }) => {
   }, [mainCategory]);
 
   const arrayData = filterAllPartsData.filter(
-    (item) => item.Family === subSubCateg
+    (item) => item.Frames === lastCat
   );
-  // console.log("last array data is : ", arrayData);
+  // console.log("last array data is : ", filterAllPartsData);
 
   const srcArray = arrayData.map((item) => item.ListOfHrefs).flat();
   // console.log("ListOfHrefs is : ", srcArray);
 
   const cardsData = srcArray.filter((item) => item.h1Tag === paramsPath);
-  // console.log("cards are:", cardsData);
+  console.log("cards are:", cardsData);
 
   // const cards = cardsData.map((item) => item.cards);
 
@@ -108,7 +113,7 @@ const Parts = ({ params }) => {
                           className="sm:w-48 w-auto h-56 sm:p-0 p-1 flex flex-col hover:shadow-xl hover:border hover:duration-300 hover:scale-105 hover:border-opacity-10 rounded-md items-center justify-around text-yellow-500 hover:bg-slate-100 hover:bg-opacity-10"
                         >
                           <img
-                            src={data.imageLink}
+                            src={data.ImageLink}
                             alt={data.Alt}
                             // width={160}
                             height={100}

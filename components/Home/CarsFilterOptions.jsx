@@ -64,7 +64,7 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
     return arrayData;
   }, [selectManufacture]);
 
-  // console.table("Default data is :", defaultArray);
+  console.table("Default data is :", defaultArray);
 
   const mainArrayFunction = useMemo(() => {
     let arrayData;
@@ -243,7 +243,7 @@ const CarsFilterOptions = ({ selectManufacture, selectYear }) => {
                   <div key={index}>
                     <div
                       onClick={() =>
-                        router.push(`/${`exploreParts`}/${href}/${data.Family}`)
+                        router.push(`/${`exploreParts`}/${href}/${data.Frames}`)
                       }
                       className="w-48 h-60 rounded-md hover:shadow-xl flex flex-col justify-start items-center text-[0.75rem] text-[#A5A5A5] hover:cursor-pointer"
                     >

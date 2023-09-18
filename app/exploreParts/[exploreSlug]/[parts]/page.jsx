@@ -5,7 +5,11 @@ import React, { useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 // local imports
-import { hondaAllPartsData } from "@/public/utils/allPartsData";
+import {
+  hondaAllPartsData,
+  allHondaDataArray,
+} from "@/public/utils/allPartsData";
+import { allDataForInfiniti } from "@/public/utils/allInfinitiData";
 
 const partsGroup = [
   {
@@ -38,35 +42,37 @@ const Chassis = ({ params }) => {
 
   const lastCat = subSubCateg;
 
+  // console.log("Last Category is : ", lastCat);
+
   const filterAllPartsData = useMemo(() => {
     let allPartsArray;
     switch (mainCategory) {
       case "Toyota":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Suzuki":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Lexus":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Mitsubishi":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Honda":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allHondaDataArray;
         break;
       case "Mazda":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Nissan":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Subaru":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       case "Infiniti":
-        allPartsArray = hondaAllPartsData;
+        allPartsArray = allDataForInfiniti;
         break;
       // Add cases for other categories as needed
       default:
@@ -77,12 +83,12 @@ const Chassis = ({ params }) => {
 
   // console.log("filtered all parts data is : ", filterAllPartsData);
 
-  const headTitle = filterAllPartsData.find((item) => item.Family === lastCat);
+  const headTitle = filterAllPartsData.find((item) => item.Frames === lastCat);
 
-  // console.log("headTitle data is : ", headTitle.BreadcrumbsH1);
+  // console.log("headTitle data is : ", headTitle? headTitle.BreadcrumbsH1 : "No Title");
 
   const arrayData = filterAllPartsData.filter(
-    (item) => item.Family === lastCat
+    (item) => item.Frames === lastCat
   );
   // console.log("array data is : ", arrayData);
 
@@ -143,10 +149,11 @@ const Chassis = ({ params }) => {
         {/* parts group */}
         <div className="w-full h-auto flex lg:justify-start justify-center flex-wrap gap-8">
           {/* card */}
-          {arrayData?.map((data, index) => {
+          {arrayData?.slice(0, 1).map((data, index) => {
             return (
-              <div className="h-auto w-full flex flex-wrap justify-evenly gap-8 items-center"
-              key={index}
+              <div
+                className="h-auto w-full flex flex-wrap justify-evenly gap-8 items-center"
+                key={index}
               >
                 <div
                   // onClick={() => router.push(`${pathname}/${data.name}`)}
@@ -196,7 +203,7 @@ const Chassis = ({ params }) => {
                     })}
                   </div>
                 </div>
-                <div className="flex flex-col gap-8 pb-20">
+                <div className="flex flex-col gap-8 pb-20 w-full">
                   <h1 className="lg:text-lg text-sm font-medium text-yellow-500">
                     Frames
                   </h1>
