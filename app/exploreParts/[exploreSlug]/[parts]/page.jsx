@@ -9,7 +9,7 @@ import {
   hondaAllPartsData,
   allHondaDataArray,
 } from "@/public/utils/allPartsData";
-import { allDataForInfiniti } from "@/public/utils/allInfinitiData";
+import { allDataForInfiniti, infinitiNPN } from "@/public/utils/allInfinitiData";
 
 const partsGroup = [
   {
@@ -72,7 +72,7 @@ const Chassis = ({ params }) => {
         allPartsArray = allDataForInfiniti;
         break;
       case "Infiniti":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       // Add cases for other categories as needed
       default:
@@ -81,7 +81,7 @@ const Chassis = ({ params }) => {
     return allPartsArray;
   }, [mainCategory]);
 
-  // console.log("filtered all parts data is : ", filterAllPartsData);
+  // console.table("filtered all parts data is : ", filterAllPartsData);
 
   const headTitle = filterAllPartsData.find((item) => item.Frames === lastCat);
 

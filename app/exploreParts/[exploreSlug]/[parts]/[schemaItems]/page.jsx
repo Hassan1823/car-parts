@@ -7,13 +7,13 @@ import { usePathname } from "next/navigation";
 
 // local imports
 import { hondaAllPartsData, allHondaDataArray } from "@/public/utils/allPartsData";
-import { allDataForInfiniti } from "@/public/utils/allInfinitiData";
+import { allDataForInfiniti, infinitiNPN } from "@/public/utils/allInfinitiData";
 
 const Parts = ({ params }) => {
   const pathname = usePathname();
   // const router = useRouter();
   const paramsPath =
-    decodeURIComponent(params.schemaItems).replace(/%20/g, " ") + " ";
+    decodeURIComponent(params.schemaItems).replace(/%20/g, " ");
 
   const subSubCateg =
     decodeURIComponent(params.parts).replace(/%20/g, " ") + " ";
@@ -35,31 +35,31 @@ const Parts = ({ params }) => {
     let allPartsArray;
     switch (mainCategory) {
       case "Toyota":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Suzuki":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Lexus":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Mitsubishi":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Honda":
         allPartsArray = allHondaDataArray;
         break;
       case "Mazda":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Nissan":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Subaru":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       case "Infiniti":
-        allPartsArray = allDataForInfiniti;
+        allPartsArray = infinitiNPN;
         break;
       // Add cases for other categories as needed
       default:
@@ -77,7 +77,7 @@ const Parts = ({ params }) => {
   // console.log("ListOfHrefs is : ", srcArray);
 
   const cardsData = srcArray.filter((item) => item.h1Tag === paramsPath);
-  console.log("cards are:", cardsData);
+  // console.log("paramsPath are: '", paramsPath, "'");
 
   // const cards = cardsData.map((item) => item.cards);
 
